@@ -1,0 +1,2 @@
+server.js is one of the servers, the one that I made first, server2.js is the other server. The files only differ by the ip address that they are syncing to.
+index.ejs is my frontend files

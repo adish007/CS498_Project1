@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Bank Customers</title>
+ <style>
+ body { font-family: Arial, sans-serif; margin: 20px; }
+ table { border-collapse: collapse; width: 50%; }
+ table, th, td { border: 1px solid #ccc; }
+ th, td { padding: 8px; text-align: left; }
+ form { margin-bottom: 20px; }
+ </style>
+</head>
+<body>
+ <h1>Bank Customers</h1>
+
+
+ <form action="/greeting" method="GET">
+    <button type="submit">Get Greeting</button>
+</form>
+
+<form action="/register" method="POST">
+    <input type="text" name="username" placeholder="Enter User name" required>
+    <button type="submit">Add User</button>
+</form>
+
+<form action="/list" method="GET">
+    <button type="submit">Get Users</button>
+</form>
+
+<form action="/clear" method="POST">
+    <button type="submit">Delete All Users</button>
+</form>
+
+</body>
+</html> 
