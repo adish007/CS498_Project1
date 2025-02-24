@@ -86,6 +86,9 @@ app.post('/clear', async (req, res) => {
     try {
         conn = await pool.getConnection();
         await conn.query('DELETE FROM Users');
+        const Users = await conn.query('SELECT * FROM Users');
+        res.send(Users)
+        
     }
     catch (err) {
         console.error('Error deleting users:', err);
@@ -94,7 +97,7 @@ app.post('/clear', async (req, res) => {
     finally{
         if (conn) conn.release();
     }
-    res.redirect('/');
+    // res.redirect('/');
         /////
     if (!isSync) {
         console.log("Syncing with other instance")
@@ -112,7 +115,8 @@ app.get('/list', async (req, res) => {
         conn = await pool.getConnection();
         // Get all Users from the table
         const Users = await conn.query('SELECT * FROM Users');
-        res.send(Users)
+        const response = { users: Users.map(user => user.username) };
+        res.json(response);
 
         conn.release();
 

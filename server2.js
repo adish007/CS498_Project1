@@ -112,7 +112,8 @@ app.get('/list', async (req, res) => {
         conn = await pool.getConnection();
         // Get all Users from the table
         const Users = await conn.query('SELECT * FROM Users');
-        res.send(Users)
+        const response = { users: Users.map(user => user.username) };
+        res.json(response);
 
         conn.release();
 
